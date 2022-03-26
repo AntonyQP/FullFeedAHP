@@ -715,19 +715,6 @@ def convertir_valores_por_calorias_especificas(dish:Dishes, calorias: int):
 
 app = Flask(__name__)
 
-#app.config['MONGO_URI'] = 'mongodb://localhost:27017/pythonmongodb'
-#mongo = PyMongo(app)
-
-
-@app.route('/diet', methods=['POST'])
-def get_diet():
-    request_data = request.get_json()
-    calories = request_data['calories']
-    weight =  request_data['weight']
-    response =  recomendar_dieta(calories, weight)
-    return Response(DishesEnconder().encode(response), mimetype='application/json')
-    #return str(response)
-
 
 @app.route('/diet-month', methods=['POST'])
 def get_diet2():
