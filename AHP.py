@@ -738,8 +738,9 @@ def obtener_alternativas():
     response = get_platos_alternativos(calorias, horario)
     return Response(DishesEnconder().encode(response), mimetype='application/json')
 
-
-
+@app.route("/", methods=['GET'])
+def hello():
+    return Response("Hola...", mimetype='text/plain')
 
 platos = []
 leer_platos(platos)
@@ -751,5 +752,5 @@ if __name__  == '__main__':
     #1g carbo = 4kcalc
     #Son porciones de 100g
     #print(sorted(INGREDIENTES))
-    app.run(debug=False,port=8888)
+    app.run()
 
